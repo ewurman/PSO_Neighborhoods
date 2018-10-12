@@ -2,11 +2,20 @@
 //  main.cpp
 //  Proj2
 //
-//  Created by Ian Squiers on 10/12/18.
-//  Copyright © 2018 Ian Squiers. All rights reserved.
+//  Created by Ian Squiers and Erik Wurman on 10/12/18.
 //
 
 #include <iostream>
+
+#include "Particle.cpp"
+#include "Swarm.cpp"
+
+enum Function {
+    rosenbrock,
+    ackley,
+    rastrigin
+}
+
 
 int main(int argc, const char * argv[]) {
     // insert code here...

@@ -2,8 +2,7 @@
 //  Swarm.hpp
 //  Proj2
 //
-//  Created by Ian Squiers on 10/12/18.
-//  Copyright © 2018 Ian Squiers. All rights reserved.
+//  Created by Ian Squiers and Erik Wurman on 10/12/18.
 //
 
 #ifndef Swarm_hpp
