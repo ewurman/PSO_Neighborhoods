@@ -27,12 +27,12 @@ const double AckleyPosMin = 16.0;
 const double AckleyPosMax = 32.0;
 const double RastriginPosMin = 2.56;
 const double RastriginPosMax = 5.12;
-const double RosenbrockVelMin = -2;
-const double RosenbrockVelMax = 2;
-const double AckleyVelMin = -2;
-const double AckleyVelMax = 4;
-const double RastriginVelMin = -2;
-const double RastriginVelMax = 4;
+const double RosenbrockVelMin = -2.0;
+const double RosenbrockVelMax = 2.0;
+const double AckleyVelMin = -2.0;
+const double AckleyVelMax = 4.0;
+const double RastriginVelMin = -2.0;
+const double RastriginVelMax = 4.0;
 
 
 void getPosRangeForFunction(Function f, double &min, double &max){
@@ -79,7 +79,7 @@ double randomDoubleInRange(double fMin, double fMax)
 
 //ARE you included in your own neighborhood?
 
-void ring(vector<Particle> particles) {
+void ring(&vector<Particle> particles) {
 	for (int i = 0; i < particles.size(); i++) {
 		if (i == 0){
 			particles[i].neighborhood.pushback(&particles[particles.size()-1]);
@@ -96,7 +96,7 @@ void ring(vector<Particle> particles) {
 	}
 }
 
-void vonNeumann(vector<Particle> particles) {
+void vonNeumann(&vector<Particle> particles) {
 	for (int i = 0; i < particles.size(); i++) {
 		if (i == 0){
 			particles[i].neighborhood.pushback(&particles[particles.size()-2]);
@@ -133,7 +133,7 @@ void vonNeumann(vector<Particle> particles) {
 	}
 }
 
-void global(vector<Particle> particles) {
+void global(&vector<Particle> particles) {
 	for (int i = 0; i < particles.size(); i++) {
 		for (int j = 0; j < particles.size(); j++) {
 			if (i != j) {
@@ -143,7 +143,7 @@ void global(vector<Particle> particles) {
 	}
 }
 
-void randNeighbors(vector<Particle> particles, int numNeighbors) {
+void randNeighbors(&vector<Particle> particles, int numNeighbors) {
 	vector<int> used;
 	std::vector<int>::iterator it;
 	for (int i = 0; i < particles.size(); i++) {

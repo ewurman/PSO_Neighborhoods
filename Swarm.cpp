@@ -9,25 +9,6 @@
 #include "Particle.cpp"
 #include <vector>
 
-/*
-class Swarm {
-
-    private:
-        int numIterations;
-        int swarmSize;
-        int dimensions;
-        vector<Particle> particles;
-        Function function;
-        NeighborhoodTopology topology;
-
-    public:
-        Swarm(int iterations, int numParticles, int dimensions, Function f, NeighborhoodTopology topology);
-
-        void PSO();
-
-        
-};
-*/
 
 Swarm::Swarm(int iterations, int numParticles, int dimensions, Function f, NeighborhoodTopology topology){
     this.numIterations = iterations;
@@ -42,5 +23,24 @@ Swarm::Swarm(int iterations, int numParticles, int dimensions, Function f, Neigh
         Particle p = new Particle(dimensions, minPos, maxPos, minVel, maxVel);
         this.particles.push_back(p);
     }
+    initializeNeighborhoods();
+}
+
+void Swarm::initializeNeighborhoods(){
+    if (this.topology == NeighborhoodTopology.Global){
+        global(this.particles);
+    }
+    if (this.topology == NeighborhoodTopology.Ring){
+        ring(this.particles);
+    }
+    if (this.topology == NeighborhoodTopology.VonNeumann){
+        vonNeumann(this.particles);
+    }
+    if (this.topology == NeighborhoodTopology.Random){
+        randNeighbors(this.particles, randomNeighborNum);
+    }
+}
+
+void Swarm::pso(){
 
 }

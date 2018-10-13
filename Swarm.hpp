@@ -16,6 +16,8 @@
 
 class Swarm {
 
+    static int randomNeighborNum = 5;
+
     private:
         int numIterations;
         int swarmSize;
@@ -27,8 +29,8 @@ class Swarm {
 
     public:
         Swarm(int iterations, int numParticles, int dimensions, Function f, NeighborhoodTopology topology);
-
-        void PSO();
+        void initializeNeighborhoods();
+        void pso();
 
         
 };
