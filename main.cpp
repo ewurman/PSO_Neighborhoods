@@ -57,12 +57,7 @@ int main(int argc, const char * argv[]) {
 
 
     // Below this point can be done in Swarm::pso();
-    // run interations
-    for (int i = 0; i < interations; i++) {
-    	
-    }
 
-    // find best so far
 
 
     return 0;

@@ -7,9 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		6D0AFC5D2170F29300E2EE07 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6D0AFC5C2170F29300E2EE07 /* main.cpp */; };
-		6D0AFC652170FA1B00E2EE07 /* Swarm.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6D0AFC632170FA1B00E2EE07 /* Swarm.cpp */; };
-		6D0AFC682171033E00E2EE07 /* Particle.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6D0AFC662171033E00E2EE07 /* Particle.cpp */; };
+		6D9CCDE92172883C0032DAA0 /* Swarm.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6D9CCDE22172883C0032DAA0 /* Swarm.cpp */; };
+		6D9CCDEA2172883C0032DAA0 /* Particle.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6D9CCDE52172883C0032DAA0 /* Particle.cpp */; };
+		6D9CCDEB2172883C0032DAA0 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6D9CCDE72172883C0032DAA0 /* main.cpp */; };
+		6D9CCDEC2172883C0032DAA0 /* utils.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6D9CCDE82172883C0032DAA0 /* utils.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -26,11 +27,13 @@
 
 /* Begin PBXFileReference section */
 		6D0AFC592170F29300E2EE07 /* Proj2 */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = Proj2; sourceTree = BUILT_PRODUCTS_DIR; };
-		6D0AFC5C2170F29300E2EE07 /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
-		6D0AFC632170FA1B00E2EE07 /* Swarm.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Swarm.cpp; sourceTree = "<group>"; };
-		6D0AFC642170FA1B00E2EE07 /* Swarm.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = Swarm.hpp; sourceTree = "<group>"; };
-		6D0AFC662171033E00E2EE07 /* Particle.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Particle.cpp; sourceTree = "<group>"; };
-		6D0AFC672171033E00E2EE07 /* Particle.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = Particle.hpp; sourceTree = "<group>"; };
+		6D9CCDE22172883C0032DAA0 /* Swarm.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = Swarm.cpp; path = ../../Swarm.cpp; sourceTree = "<group>"; };
+		6D9CCDE32172883C0032DAA0 /* Particle.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = Particle.hpp; path = ../../Particle.hpp; sourceTree = "<group>"; };
+		6D9CCDE42172883C0032DAA0 /* Swarm.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = Swarm.hpp; path = ../../Swarm.hpp; sourceTree = "<group>"; };
+		6D9CCDE52172883C0032DAA0 /* Particle.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = Particle.cpp; path = ../../Particle.cpp; sourceTree = "<group>"; };
+		6D9CCDE62172883C0032DAA0 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; name = README.md; path = ../../README.md; sourceTree = "<group>"; };
+		6D9CCDE72172883C0032DAA0 /* main.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = main.cpp; path = ../../main.cpp; sourceTree = "<group>"; };
+		6D9CCDE82172883C0032DAA0 /* utils.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = utils.cpp; path = ../../utils.cpp; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -63,11 +66,13 @@
 		6D0AFC5B2170F29300E2EE07 /* Proj2 */ = {
 			isa = PBXGroup;
 			children = (
-				6D0AFC5C2170F29300E2EE07 /* main.cpp */,
-				6D0AFC632170FA1B00E2EE07 /* Swarm.cpp */,
-				6D0AFC662171033E00E2EE07 /* Particle.cpp */,
-				6D0AFC672171033E00E2EE07 /* Particle.hpp */,
-				6D0AFC642170FA1B00E2EE07 /* Swarm.hpp */,
+				6D9CCDE72172883C0032DAA0 /* main.cpp */,
+				6D9CCDE52172883C0032DAA0 /* Particle.cpp */,
+				6D9CCDE32172883C0032DAA0 /* Particle.hpp */,
+				6D9CCDE62172883C0032DAA0 /* README.md */,
+				6D9CCDE22172883C0032DAA0 /* Swarm.cpp */,
+				6D9CCDE42172883C0032DAA0 /* Swarm.hpp */,
+				6D9CCDE82172883C0032DAA0 /* utils.cpp */,
 			);
 			path = Proj2;
 			sourceTree = "<group>";
@@ -128,9 +133,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				6D0AFC652170FA1B00E2EE07 /* Swarm.cpp in Sources */,
-				6D0AFC682171033E00E2EE07 /* Particle.cpp in Sources */,
-				6D0AFC5D2170F29300E2EE07 /* main.cpp in Sources */,
+				6D9CCDE92172883C0032DAA0 /* Swarm.cpp in Sources */,
+				6D9CCDEA2172883C0032DAA0 /* Particle.cpp in Sources */,
+				6D9CCDEB2172883C0032DAA0 /* main.cpp in Sources */,
+				6D9CCDEC2172883C0032DAA0 /* utils.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
