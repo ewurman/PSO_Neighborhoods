@@ -24,10 +24,10 @@ class Particle {
         double* position;
         double* velocity;
         int dimensions;
-        std::vector <Particle*> neighborhood; // We don;t include this particle in the neighbors
-    
     
     public:
+        std::vector <Particle*> neighborhood; // We don;t include this particle in the neighbors
+
         Particle(int dimensions, double startPosMin, double startPosMax, double startVelMin, double startVelMax);
         Particle(int dimensions, double startPosMin, double startPosMax, double startVelMin, double startVelMax, std::vector<Particle*> neighborhood);
 

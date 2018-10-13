@@ -21,7 +21,7 @@ enum NeighborhoodTopology {
 	Global,
 	Ring,
 	VonNeumann,
-    Random
+	Random
 };
 
 const double RosenbrockPosMin = 15.0;
