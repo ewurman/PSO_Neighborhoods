@@ -10,11 +10,6 @@
 #include "Particle.cpp"
 #include "Swarm.cpp"
 
-enum Function {
-    rosenbrock,
-    ackley,
-    rastrigin
-}
 
 
 int main(int argc, const char * argv[]) {

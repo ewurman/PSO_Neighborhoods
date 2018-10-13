@@ -8,6 +8,69 @@
 #include "Particle.hpp"
 #include <vector>
 
+enum Function {
+    Rosenbrock,
+    Ackley,
+    Rastrigin
+}
+
+enum NeighborhoodTopology {
+	Global,
+	Ring,
+	VonNeumann,
+	Random
+}
+
+const double RosenbrockPosMin = 15.0;
+const double RosenbrockPosMax = 30.0;
+const double AckleyPosMin = 16.0;
+const double AckleyPosMax = 32.0;
+const double RastriginPosMin = 2.56;
+const double RastriginPosMax = 5.12;
+const double RosenbrockVelMin = -2;
+const double RosenbrockVelMax = 2;
+const double AckleyVelMin = -2;
+const double AckleyVelMax = 4;
+const double RastriginVelMin = -2;
+const double RastriginVelMax = 4;
+
+
+void getPosRangeForFunction(Function f, double &min, double &max){
+	if (f == Function.Rosenbrock){
+		min = RosenbrockPosMin;
+		max = RosenbrockPosMax;
+		return;
+	}
+	if (f == Function.Ackley){
+		min = AckleyPosMin;
+		max = AckleyPosMax;
+		return;
+	}
+	if (f == Function.Rastrigin){
+		min = RastriginPosMin;
+		max = RastriginPosMax;
+		return;
+	}
+}
+
+void getVelRangeForFunction(Function f, double &min, double &max){
+	if (f == Function.Rosenbrock){
+		min = RosenbrockVelMin;
+		max = RosenbrockVelMax;
+		return;
+	}
+	if (f == Function.Ackley){
+		min = AckleyVelMin;
+		max = AckleyVelMax;
+		return;
+	}
+	if (f == Function.Rastrigin){
+		min = RastriginVelMin;
+		max = RastriginVelMax;
+		return;
+	}
+}
+
 double randomDoubleInRange(double fMin, double fMax)
 {
     double f = (double)rand() / RAND_MAX;
@@ -24,7 +87,7 @@ void ring(vector<Particle> particles) {
 		}
 		else if (i == (particles.size() - 1)){
 			particles[i].neighborhood.pushback(&particles[i-1]);
-			particles[i].neighborhood.pushback(&particles[i+1]);
+			particles[i].neighborhood.pushback(&particles[0]);
 		}
 		else {
 			particles[i].neighborhood.pushback(&particles[i+1]);

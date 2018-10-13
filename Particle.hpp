@@ -24,12 +24,12 @@ class Particle {
         double* position; 
         double* velocity;
         int dimensions;
-        vector <Particle> neighborhood;
+        vector <Particle*> neighborhood; // We don;t include this particle in the neighbors
         
         
     public:
-        Particle(int dimensions);
-        Particle(int dimensions, vector<Particle> neighborhood);
+        Particle(int dimensions, double startPosMin, double startPosMax, double startVelMin, double startVelMax);
+        Particle(int dimensions, double startPosMin, double startPosMax, double startVelMin, double startVelMax, vector<Particle*> neighborhood);
 
         double getPBestVal() { return this.pbestVal; }
         double* getPBestLoc() { return this.pbestLoc; }

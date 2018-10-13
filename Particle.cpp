@@ -8,25 +8,33 @@
 #include "Particle.hpp"
 
 
-Particle::Particle(int dimensions){
+Particle::Particle(int dimensions, double startPosMin, double startPosMax, double startVelMin, double startVelMax){
     this.pbestVal = INT_MAX;
     this.pbestLoc = new double[dimensions];
     this.position = new double[dimensions];
     this.velocity = new double[dimensions];
-    //TODO: random initialization of position and velocity.
+    for (int i = 0; i < dimensions; i++){
+        position[i] = randomDoubleInRange(startPosMin, startPosMax);
+        velocity[i] = randomDoubleInRange(startVelMin, startVelMax);
+    }
     this.dimensions = dimensions;
-    this.neighborhood = new vector<position>();
+    this.neighborhood = new vector<Particle*>();
 }
         
 
-Particle::Particle(int dimensions, vector<Particle> neighborhood){
+Particle::Particle(int dimensions, double startPosMin, double startPosMax, double startVelMin, double startVelMax, vector<Particle*> neighborhood){
     this.pbestVal = INT_MAX;
     this.pbestLoc = new double[dimensions];
     this.position = new double[dimensions];
     this.velocity = new double[dimensions];
+    for (int i = 0; i < dimensions; i++){
+        position[i] = randomDoubleInRange(startPosMin, startPosMax);
+        velocity[i] = randomDoubleInRange(startVelMin, startVelMax);
+    }
     this.dimensions = dimension;
     this.neighborhood = neighborhood;
 }
+
 
 double* Particle::getNBestLoc(){
     double* nbestLoc = this.pbestLoc;
