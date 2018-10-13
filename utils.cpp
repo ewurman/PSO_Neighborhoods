@@ -97,7 +97,7 @@ int** vnArray(int rows, int columns) {
 
 
 void vonNeumann(std::vector<Particle> &particles) {
-	int rows = 0;
+	int rows = 1;
 	switch (particles.size()) {
 		case 16 : rows = 4; break;
 		case 30 : rows = 5; break;
@@ -162,17 +162,6 @@ void ring(vector<Particle> &particles) {
 		else {
 			particles[i].neighborhood.push_back(&particles[i+1]);
 			particles[i].neighborhood.push_back(&particles[i-1]);
-		}
-	}
-}
-
-
-void global(vector<Particle> &particles) {
-	for (int i = 0; i < particles.size(); i++) {
-		for (int j = 0; j < particles.size(); j++) {
-			if (i != j) {
-				particles[i].neighborhood.push_back(&particles[j]);
-			}
 		}
 	}
 }

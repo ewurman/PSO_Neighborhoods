@@ -6,19 +6,17 @@
 //
 
 #include <iostream>
-
-#include "Particle.cpp"
 #include "Swarm.cpp"
 
 using namespace std;
 
 int main(int argc, const char * argv[]) {
 
-	char * topologytype = argv[1];
+	const char * topologytype = argv[1];
 	int num_particles = atoi(argv[2]);
 	int iterations = atoi(argv[3]);
-	char * func = argv[4];
-	int dimensions = atoi(argv[5]);
+	const char * func = argv[4];
+	const int dimensions = atoi(argv[5]);
 
 	// establish which neighborhood
     NeighborhoodTopology topology;
