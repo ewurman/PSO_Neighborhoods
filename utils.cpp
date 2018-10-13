@@ -1,13 +1,15 @@
 // Utilities file for PSO code
 //
-// 
+//
 
 
 #ifndef UTILS_CPP
 #define UTILS_CPP
+
 #include "Particle.hpp"
 #include <vector>
 #include <math.h>
+
 
 using namespace std;
 
@@ -90,10 +92,12 @@ int** vnArray(int rows, int columns) {
             count++;
         }
     }
+    return indecies;
 }
 
+
 void vonNeumann(std::vector<Particle> &particles) {
-	int rows;
+	int rows = 0;
 	switch (particles.size()) {
 		case 16 : rows = 4; break;
 		case 30 : rows = 5; break;
@@ -135,6 +139,15 @@ void vonNeumann(std::vector<Particle> &particles) {
 }
 
 
+void global(vector<Particle> &particles) {
+    for (int i = 0; i < particles.size(); i++) {
+        for (int j = 0; j < particles.size(); j++) {
+            if (i != j) {
+                particles[i].neighborhood.push_back(&particles[j]);
+            }
+        }
+    }
+}
 
 void ring(vector<Particle> &particles) {
 	for (int i = 0; i < particles.size(); i++) {
@@ -163,6 +176,7 @@ void global(vector<Particle> &particles) {
 		}
 	}
 }
+
 
 void randNeighbors(vector<Particle> &particles, int numNeighbors) {
 	vector<int> used;
@@ -195,7 +209,7 @@ double evaluateRosenbrock(double* pos, int dimensions){
 }
 
 double evaluateAckley(double* pos, int dimensions){
-	double firstSum, secondSum = 0.0;
+	double firstSum = 0, secondSum = 0.0;
 	for (int i =0; i < dimensions; i++){
 		firstSum += pos[i]*pos[i];
 		secondSum += cos(2 * M_PI * pos[i]);
