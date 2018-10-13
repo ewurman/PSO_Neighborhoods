@@ -90,6 +90,7 @@ int** vnArray(int rows, int columns) {
             count++;
         }
     }
+    return indecies;
 }
 
 void vonNeumann(std::vector<Particle> particles) {
