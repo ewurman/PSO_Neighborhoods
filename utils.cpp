@@ -7,6 +7,7 @@
 #define UTILS_CPP
 #include "Particle.hpp"
 #include <vector>
+#include <math.h>
 
 enum Function {
     Rosenbrock,
@@ -180,6 +181,33 @@ void randNeighbors(&vector<Particle> particles, int numNeighbors) {
 		}
 	}
 }
+
+
+double evaluateRosenbrock(double* pos, int dimensions){
+	double total = 0;
+	for (int i = 0; i < dimensions - 1; i++){
+		total += 100*(pos[i+1] - pos[i]*pos[i])*(pos[i+1] - pos[i]*pos[i]) + (pos[i] - 1)*(pos[i] - 1);
+	}
+	return total;
+}
+
+double evaluateAckley(double* pos, int dimensions){
+	double firstSum, secondSum = 0.0;
+	for (int i =0; i < dimensions; i++){
+		firstSum += pos[i]*pos[i];
+		secondSum += cos(2 * M_PI * pos[i]);
+	}
+	return -20.0 * exp(-0.2*sqrt(firstSum / (double)dimensions)) - exp(secondSum / (double) dimensions) + 20 + M_E;
+}
+
+double evaluateRastrigin(double* pos, int dimensions){
+	fitness = 10 * dimensions;
+	for (int i = 0; i < dimensions; i++){
+		fitness += pos[i]*pos[i] - (10 * cos(2 * M_PI * pos[i])) 
+	}
+	return fitness;
+}
+
 
 
 #endif
