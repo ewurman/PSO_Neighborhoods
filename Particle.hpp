@@ -5,12 +5,12 @@
 //  Created by Ian Squiers and Erik Wurman on 10/12/18.
 //
 
-#ifndef Particle_hpp
-#define Particle_hpp
-
 #include <stdio.h>
 #include <vector>
 #include "utils.cpp"
+
+#ifndef Particle_hpp
+#define Particle_hpp
 
 
 class Particle {
@@ -21,12 +21,12 @@ class Particle {
     private:
         double pbestVal;
         double* pbestLoc; // these are arrays of x_i values representing position or velocity in d dimensions
-        double* position; 
+        double* position;
         double* velocity;
         int dimensions;
         std::vector <Particle*> neighborhood; // We don;t include this particle in the neighbors
-        
-        
+    
+    
     public:
         Particle(int dimensions, double startPosMin, double startPosMax, double startVelMin, double startVelMax);
         Particle(int dimensions, double startPosMin, double startPosMax, double startVelMin, double startVelMax, std::vector<Particle*> neighborhood);

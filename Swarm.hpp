@@ -4,14 +4,14 @@
 //
 //  Created by Ian Squiers and Erik Wurman on 10/12/18.
 //
+#include <stdio.h>
+#include <vector>
+#include "utils.cpp"
 
 
 #ifndef Swarm_hpp
 #define Swarm_hpp
 
-#include <stdio.h>
-#include <vector>
-#include "utils.cpp"
 
 
 class Swarm {
@@ -25,7 +25,6 @@ class Swarm {
         Function function;
         NeighborhoodTopology topology;
         vector<Particle> particles;
-        
 
     public:
         Swarm(int iterations, int numParticles, int dimensions, Function f, NeighborhoodTopology topology);

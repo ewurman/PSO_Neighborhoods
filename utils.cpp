@@ -6,7 +6,6 @@
 #ifndef UTILS_CPP
 #define UTILS_CPP
 #include "Particle.hpp"
-#include "Particle.cpp"
 #include <vector>
 #include <math.h>
 
@@ -38,17 +37,17 @@ const double RastriginVelMax = 4.0;
 
 
 void getPosRangeForFunction(Function f, double &min, double &max){
-	if (f == Function.Rosenbrock){
+	if (f == Rosenbrock){
 		min = RosenbrockPosMin;
 		max = RosenbrockPosMax;
 		return;
 	}
-	if (f == Function.Ackley){
+	if (f == Ackley){
 		min = AckleyPosMin;
 		max = AckleyPosMax;
 		return;
 	}
-	if (f == Function.Rastrigin){
+	if (f == Rastrigin){
 		min = RastriginPosMin;
 		max = RastriginPosMax;
 		return;
@@ -56,17 +55,17 @@ void getPosRangeForFunction(Function f, double &min, double &max){
 }
 
 void getVelRangeForFunction(Function f, double &min, double &max){
-	if (f == Function.Rosenbrock){
+	if (f == Rosenbrock){
 		min = RosenbrockVelMin;
 		max = RosenbrockVelMax;
 		return;
 	}
-	if (f == Function.Ackley){
+	if (f == Ackley){
 		min = AckleyVelMin;
 		max = AckleyVelMax;
 		return;
 	}
-	if (f == Function.Rastrigin){
+	if (f == Rastrigin){
 		min = RastriginVelMin;
 		max = RastriginVelMax;
 		return;

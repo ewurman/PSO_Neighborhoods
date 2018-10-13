@@ -6,28 +6,29 @@
 //
 
 #include "Particle.hpp"
+#include "utils.cpp"
 #include <vector>
 
 
 Particle::Particle(int dimensions, double startPosMin, double startPosMax, double startVelMin, double startVelMax){
-    this.pbestVal = INT_MAX;
-    this.pbestLoc = new double[dimensions];
-    this.position = new double[dimensions];
-    this.velocity = new double[dimensions];
+    this->pbestVal = INT_MAX;
+    this->pbestLoc = new double[dimensions];
+    this->position = new double[dimensions];
+    this->velocity = new double[dimensions];
     for (int i = 0; i < dimensions; i++){
         position[i] = randomDoubleInRange(startPosMin, startPosMax);
         velocity[i] = randomDoubleInRange(startVelMin, startVelMax);
     }
-    this.dimensions = dimensions;
-    this.neighborhood = new vector<Particle*>();
+    this->dimensions = dimensions;
+    this->neighborhood = *new std::vector<Particle*>();
 }
         
 
-Particle::Particle(int dimensions, double startPosMin, double startPosMax, double startVelMin, double startVelMax, vector<Particle*> neighborhood){
-    this.pbestVal = INT_MAX;
-    this.pbestLoc = new double[dimensions];
-    this.position = new double[dimensions];
-    this.velocity = new double[dimensions];
+Particle::Particle(int dimensions, double startPosMin, double startPosMax, double startVelMin, double startVelMax, std::vector<Particle*> neighborhood){
+    this->pbestVal = INT_MAX;
+    this->pbestLoc = new double[dimensions];
+    this->position = new double[dimensions];
+    this->velocity = new double[dimensions];
     for (int i = 0; i < dimensions; i++){
         position[i] = randomDoubleInRange(startPosMin, startPosMax);
         velocity[i] = randomDoubleInRange(startVelMin, startVelMax);
@@ -41,18 +42,18 @@ double* Particle::getNBestLoc(){
     double* nbestLoc = this.pbestLoc;
     double nbestVal = this.pbestVal;
     for (int i = 0; i < this.neighborhood.size(); i++){
-        double val = this.neighborhood[i].getPBestVal();
+        double val = this->neighborhood[i].getPBestVal();
         if (val < nbestVal){
             nbestVal = val;
-            nbestLoc = this.neighborhood[i].getPBestLoc();
+            nbestLoc = this->neighborhood[i].getPBestLoc();
         }
     }
     return nbestLoc;
 }
 
-void Particle::udpdatePosition(){
-    for (int i = 0; i < this.dimensions; i++){
-        this.position[i] = this.position[i] + this.velocity[i];
+void Particle::update_position(){
+    for (int i = 0; i < this->dimensions; i++){
+        this->position[i] = this.position[i] + this.velocity[i];
     }
 }
 
