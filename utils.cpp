@@ -127,10 +127,10 @@ void vonNeumann(std::vector<Particle> particles) {
 				cl = j - 1;
                 cr = 0;
 			}
-			particles[vn[i][j]].neighborhood.pushback(&particles[rup][j]); // up
-			particles[vn[i][j]].neighborhood.pushback(&particles[rdown][j]); // down
-			particles[vn[i][j]].neighborhood.pushback(&particles[i][cr]); // right
-			particles[vn[i][j]].neighborhood.pushback(&particles[i][cl]); // left
+			particles[vn[i][j]].neighborhood.push_back(&particles[vn[rup][j]]); // up
+			particles[vn[i][j]].neighborhood.push_back(&particles[vn[rdown][j]]); // down
+			particles[vn[i][j]].neighborhood.push_back(&particles[vn[i][cr]]); // right
+			particles[vn[i][j]].neighborhood.push_back(&particles[vn[i][cl]]); // left
 		}
 	}
 }
@@ -141,16 +141,16 @@ void vonNeumann(std::vector<Particle> particles) {
 void ring(&vector<Particle> particles) {
 	for (int i = 0; i < particles.size(); i++) {
 		if (i == 0){
-			particles[i].neighborhood.pushback(&particles[particles.size()-1]);
-			particles[i].neighborhood.pushback(&particles[i+1]);
+			particles[i].neighborhood.push_back(&particles[particles.size()-1]);
+			particles[i].neighborhood.push_back(&particles[i+1]);
 		}
 		else if (i == (particles.size() - 1)){
-			particles[i].neighborhood.pushback(&particles[i-1]);
-			particles[i].neighborhood.pushback(&particles[0]);
+			particles[i].neighborhood.push_back(&particles[i-1]);
+			particles[i].neighborhood.push_back(&particles[0]);
 		}
 		else {
-			particles[i].neighborhood.pushback(&particles[i+1]);
-			particles[i].neighborhood.pushback(&particles[i-1]);
+			particles[i].neighborhood.push_back(&particles[i+1]);
+			particles[i].neighborhood.push_back(&particles[i-1]);
 		}
 	}
 }
@@ -160,7 +160,7 @@ void global(&vector<Particle> particles) {
 	for (int i = 0; i < particles.size(); i++) {
 		for (int j = 0; j < particles.size(); j++) {
 			if (i != j) {
-				particles[i].neighborhood.pushback(&particles[j])
+				particles[i].neighborhood.push_back(&particles[j])
 			}
 		}
 	}
@@ -181,8 +181,8 @@ void randNeighbors(&vector<Particle> particles, int numNeighbors) {
 				it = find(used.begin(), used.end(), r);
 			}
 
-			particles[i].neighborhood.pushback(&particles[r]);
-			used.pushback(r);
+			particles[i].neighborhood.push_back(&particles[r]);
+			used.push_back(r);
 		}
 	}
 }

@@ -11,33 +11,33 @@
 
 
 Swarm::Swarm(int iterations, int numParticles, int dimensions, Function f, NeighborhoodTopology topology){
-    this.numIterations = iterations;
-    this.swarmSize = numParticles;
-    this.dimensions = dimensions;
-    this.function = f;
-    this.topology = topology;
+    this->numIterations = iterations;
+    this->swarmSize = numParticles;
+    this->dimensions = dimensions;
+    this->function = f;
+    this->topology = topology;
     double minPos, maxPos, minVel, maxVel;
     getPosRangeForFunction(f, minPos, maxPos);
     getPosRangeForFunction(f, minVel, maxVel);
     for (int i = 0; i < numParticles; i++){
         Particle p = new Particle(dimensions, minPos, maxPos, minVel, maxVel);
-        this.particles.push_back(p);
+        this->particles.push_back(p);
     }
     initializeNeighborhoods();
 }
 
 void Swarm::initializeNeighborhoods(){
-    if (this.topology == NeighborhoodTopology.Global){
-        global(this.particles);
+    if (this->topology == NeighborhoodTopology.Global){
+        global(this->particles);
     }
-    if (this.topology == NeighborhoodTopology.Ring){
-        ring(this.particles);
+    if (this->topology == NeighborhoodTopology.Ring){
+        ring(this->particles);
     }
-    if (this.topology == NeighborhoodTopology.VonNeumann){
-        vonNeumann(this.particles);
+    if (this->topology == NeighborhoodTopology.VonNeumann){
+        vonNeumann(this->particles);
     }
-    if (this.topology == NeighborhoodTopology.Random){
-        randNeighbors(this.particles, randomNeighborNum);
+    if (this->topology == NeighborhoodTopology.Random){
+        randNeighbors(this->particles, randomNeighborNum);
     }
 }
 
