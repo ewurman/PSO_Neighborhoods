@@ -12,40 +12,51 @@
 
 using namespace std;
 
-enum Function {
-    rosenbrock,
-    ackley,
-    rastrigin
-}
-
-enum Topology {
-	global,
-	ring,
-	von_Neumann,
-	random
-}
-
 int main(int argc, const char * argv[]) {
 
-	char * topology = argv[1];
-	char * num_particles = atof(argv[2]);
-	int iterations = atof(argv[3]);
+	char * topologytype = argv[1];
+	int num_particles = atoi(argv[2]);
+	int iterations = atoi(argv[3]);
 	char * func = argv[4];
-	int * dimensions = atof(argv[5]);
+	int dimensions = atoi(argv[5]);
 
-
-	// initialize particles
-
-	// establish neighborhoods
-    if (!strcmp(argv[1], "gl")) {
-    } else if (!strcmp(topology, "ri")) {
-    } else if (!strcmp(topology, "vn")) {
-    } else if (!strcmp(topology, "ra")) {
-    } else {
+	// establish which neighborhood
+    NeighborhoodTopology topology;
+    if (!strcmp(topologytype, "gl")) {
+        topology = NeighborhoodTopology.Global;
+    } 
+    else if (!strcmp(topologytype, "ri")) {
+        topology = NeighborhoodTopology.Ring;
+    } 
+    else if (!strcmp(topologytype, "vn")) {
+        topology = NeighborhoodTopology.VonNeumann;
+    } 
+    else if (!strcmp(topologytype, "ra")) {
+        topology = NeighborhoodTopology.Random;
+    } 
+    else {
         cout << "Enter valid Topology method ( gl, ri, vn, ra )" << endl;
-        return null;
+        return 1;
     }
 
+    // establish which function
+    Function function;
+    if (!strcmp(func, "rok")) {
+        function = Function.Rosenbrock;
+    } 
+    else if (!strcmp(func, "ack")) {
+        function = Function.Ackley;
+    } 
+    else if (!strcmp(func, "ras")) {
+        function = Function.Rastrigin;
+    } 
+    else {
+        cout << "Enter valid Function for PSO (rok, ack, ras)" << endl;
+        return 1;
+    }
+
+
+    // Below this point can be done in Swarm::pso();
     // run interations
     for (int i = 0; i < interations; i++) {
     	
