@@ -6,6 +6,7 @@
 //
 
 #include "Particle.hpp"
+#include <vector>
 
 
 Particle::Particle(int dimensions, double startPosMin, double startPosMax, double startVelMin, double startVelMax){

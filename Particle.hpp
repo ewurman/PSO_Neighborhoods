@@ -14,9 +14,9 @@
 
 
 class Particle {
-    static double constrictionFactor = 0.7298;
-    static double towardPbest = 2.05;
-    static double towardNbest = 2.05;
+    static constexpr double constrictionFactor = 0.7298;
+    static constexpr double towardPbest = 2.05;
+    static constexpr double towardNbest = 2.05;
 
     private:
         double pbestVal;
@@ -24,17 +24,17 @@ class Particle {
         double* position; 
         double* velocity;
         int dimensions;
-        vector <Particle*> neighborhood; // We don;t include this particle in the neighbors
+        std::vector <Particle*> neighborhood; // We don;t include this particle in the neighbors
         
         
     public:
         Particle(int dimensions, double startPosMin, double startPosMax, double startVelMin, double startVelMax);
-        Particle(int dimensions, double startPosMin, double startPosMax, double startVelMin, double startVelMax, vector<Particle*> neighborhood);
+        Particle(int dimensions, double startPosMin, double startPosMax, double startVelMin, double startVelMax, std::vector<Particle*> neighborhood);
 
-        double getPBestVal() { return this.pbestVal; }
-        double* getPBestLoc() { return this.pbestLoc; }
-        double* getPosition() { return this.position; }
-        double* getVelocity() { return this.velocity; }
+        double getPBestVal() { return this->pbestVal; }
+        double* getPBestLoc() { return this->pbestLoc; }
+        double* getPosition() { return this->position; }
+        double* getVelocity() { return this->velocity; }
 
 
         double* getNBestLoc();

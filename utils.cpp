@@ -6,20 +6,21 @@
 #ifndef UTILS_CPP
 #define UTILS_CPP
 #include "Particle.hpp"
+#include "Particle.cpp"
 #include <vector>
 
 enum Function {
     Rosenbrock,
     Ackley,
     Rastrigin
-}
+};
 
 enum NeighborhoodTopology {
 	Global,
 	Ring,
 	VonNeumann,
-	Random
-}
+    Random
+};
 
 const double RosenbrockPosMin = 15.0;
 const double RosenbrockPosMax = 30.0;
@@ -77,7 +78,19 @@ double randomDoubleInRange(double fMin, double fMax)
     return fMin + f * (fMax - fMin);
 }
 
-void vonNeumann(vector<Particle> particles) {
+int** vnArray(int rows, int columns) {
+    int ** indecies = new int*[rows];
+    int count = 0;
+    for (int i = 0; i < rows; i++) {
+        indecies[i] = new int[columns];
+        for (int j = 0; j < columns; j++) {
+            indecies[i][j] = count;
+            count++;
+        }
+    }
+}
+
+void vonNeumann(std::vector<Particle> particles) {
 	int rows;
 	switch (particles.size()) {
 		case 16 : rows = 4; break;
@@ -109,7 +122,7 @@ void vonNeumann(vector<Particle> particles) {
 			}
 			if (j == columns - 1) {
 				cl = j - 1;
-				cr = 0
+                cr = 0;
 			}
 			particles[vn[i][j]].neighborhood.pushback(&particles[rup][j]); // up
 			particles[vn[i][j]].neighborhood.pushback(&particles[rdown][j]); // down
@@ -119,17 +132,7 @@ void vonNeumann(vector<Particle> particles) {
 	}
 }
 
-int** vnArray(int rows, int columns) {
-	int ** indecies = new int*[rows];
-	int count = 0;
-	for (int i = 0; i < rows; i++) {
-		indecies[i] = new int[columns];
-		for (int j = 0; j < columns; j++) {
-			indecies[i][j] = count;
-			count++;
-		}
-	}
-}
+
 
 
 void ring(&vector<Particle> particles) {
