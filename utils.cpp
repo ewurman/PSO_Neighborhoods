@@ -92,7 +92,7 @@ int** vnArray(int rows, int columns) {
     }
 }
 
-void vonNeumann(std::vector<Particle> particles) {
+void vonNeumann(std::vector<Particle> &particles) {
 	int rows;
 	switch (particles.size()) {
 		case 16 : rows = 4; break;
@@ -136,8 +136,7 @@ void vonNeumann(std::vector<Particle> particles) {
 
 
 
-
-void ring(&vector<Particle> particles) {
+void ring(vector<Particle> &particles) {
 	for (int i = 0; i < particles.size(); i++) {
 		if (i == 0){
 			particles[i].neighborhood.push_back(&particles[particles.size()-1]);
@@ -155,17 +154,17 @@ void ring(&vector<Particle> particles) {
 }
 
 
-void global(&vector<Particle> particles) {
+void global(vector<Particle> &particles) {
 	for (int i = 0; i < particles.size(); i++) {
 		for (int j = 0; j < particles.size(); j++) {
 			if (i != j) {
-				particles[i].neighborhood.push_back(&particles[j])
+				particles[i].neighborhood.push_back(&particles[j]);
 			}
 		}
 	}
 }
 
-void randNeighbors(&vector<Particle> particles, int numNeighbors) {
+void randNeighbors(vector<Particle> &particles, int numNeighbors) {
 	vector<int> used;
 	std::vector<int>::iterator it;
 	for (int i = 0; i < particles.size(); i++) {
@@ -205,9 +204,9 @@ double evaluateAckley(double* pos, int dimensions){
 }
 
 double evaluateRastrigin(double* pos, int dimensions){
-	fitness = 10 * dimensions;
+	double fitness = 10 * dimensions;
 	for (int i = 0; i < dimensions; i++){
-		fitness += pos[i]*pos[i] - (10 * cos(2 * M_PI * pos[i])) 
+		fitness += pos[i]*pos[i] - (10 * cos(2 * M_PI * pos[i]));
 	}
 	return fitness;
 }

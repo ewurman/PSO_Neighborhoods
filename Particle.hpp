@@ -13,10 +13,12 @@
 #define Particle_hpp
 
 
+double CONSTRICTION_FACTOR = 0.7298;
+double TOWARD_PBEST = 2.05;
+double TOWARD_NBEST = 2.05;
+
+
 class Particle {
-    static constexpr double constrictionFactor = 0.7298;
-    static constexpr double towardPbest = 2.05;
-    static constexpr double towardNbest = 2.05;
 
     private:
         double pbestVal;

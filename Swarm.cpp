@@ -42,8 +42,8 @@ void Swarm::initializeNeighborhoods(){
 }
 
 void Swarm::evaluate() {
-	for (int i = 0; i < this.numParticles; i++) {
-        this.particles 
+	for (int i = 0; i < this->numParticles; i++) {
+        this->particles 
 	}
 }
 
@@ -51,7 +51,7 @@ void Swarm::pso(){
 	Swarm.evaluate();
 
 	for (int i = 0; i < iterations; i++) {
-		for (int j = 0; j < this.numParticles; j++) {
+		for (int j = 0; j < this->numParticles; j++) {
 			
 		}
 	}
