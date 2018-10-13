@@ -23,16 +23,16 @@ int main(int argc, const char * argv[]) {
 	// establish which neighborhood
     NeighborhoodTopology topology;
     if (!strcmp(topologytype, "gl")) {
-        topology = NeighborhoodTopology.Global;
+        topology = Global;
     } 
     else if (!strcmp(topologytype, "ri")) {
-        topology = NeighborhoodTopology.Ring;
+        topology = Ring;
     } 
     else if (!strcmp(topologytype, "vn")) {
-        topology = NeighborhoodTopology.VonNeumann;
+        topology = VonNeumann;
     } 
     else if (!strcmp(topologytype, "ra")) {
-        topology = NeighborhoodTopology.Random;
+        topology = Random;
     } 
     else {
         cout << "Enter valid Topology method ( gl, ri, vn, ra )" << endl;
@@ -42,13 +42,13 @@ int main(int argc, const char * argv[]) {
     // establish which function
     Function function;
     if (!strcmp(func, "rok")) {
-        function = Function.Rosenbrock;
+        function = Rosenbrock;
     } 
     else if (!strcmp(func, "ack")) {
-        function = Function.Ackley;
+        function = Ackley;
     } 
     else if (!strcmp(func, "ras")) {
-        function = Function.Rastrigin;
+        function = Rastrigin;
     } 
     else {
         cout << "Enter valid Function for PSO (rok, ack, ras)" << endl;
