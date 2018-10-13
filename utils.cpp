@@ -9,6 +9,8 @@
 #include <vector>
 #include <math.h>
 
+using namespace std;
+
 enum Function {
     Rosenbrock,
     Ackley,
