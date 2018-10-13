@@ -20,39 +20,32 @@ Swarm::Swarm(int iterations, int numParticles, int dimensions, Function f, Neigh
     getPosRangeForFunction(f, minPos, maxPos);
     getPosRangeForFunction(f, minVel, maxVel);
     for (int i = 0; i < numParticles; i++){
-        Particle p = new Particle(dimensions, minPos, maxPos, minVel, maxVel);
+        Particle p = *new Particle(dimensions, minPos, maxPos, minVel, maxVel);
         this->particles.push_back(p);
     }
     initializeNeighborhoods();
 }
 
 void Swarm::initializeNeighborhoods(){
-    if (this->topology == NeighborhoodTopology.Global){
+    if (this->topology == Global){
         global(this->particles);
     }
-    if (this->topology == NeighborhoodTopology.Ring){
+    if (this->topology == Ring){
         ring(this->particles);
     }
-    if (this->topology == NeighborhoodTopology.VonNeumann){
+    if (this->topology == VonNeumann){
         vonNeumann(this->particles);
     }
-    if (this->topology == NeighborhoodTopology.Random){
+    if (this->topology == Random){
         randNeighbors(this->particles, randomNeighborNum);
     }
 }
 
-void Swarm::evaluate() {
-	for (int i = 0; i < this.numParticles; i++) {
-        this.particles 
-	}
-}
 
 void Swarm::pso(){
-	Swarm.evaluate();
+	//Swarm.evaluate();
 
-	for (int i = 0; i < iterations; i++) {
-		for (int j = 0; j < this.numParticles; j++) {
-			
-		}
+    for (int i = 0; i < this->numIterations; i++) {
+
 	}
 }

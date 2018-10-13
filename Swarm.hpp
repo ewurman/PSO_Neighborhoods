@@ -16,7 +16,7 @@
 
 class Swarm {
 
-    static int randomNeighborNum = 5;
+    const static int randomNeighborNum = 5;
 
     private:
         int numIterations;
