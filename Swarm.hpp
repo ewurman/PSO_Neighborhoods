@@ -29,6 +29,7 @@ class Swarm {
     public:
         Swarm(int iterations, int numParticles, int dimensions, Function f, NeighborhoodTopology topology);
         void initializeNeighborhoods();
+        void evaluate();
         void pso();
         
 };
