@@ -26,7 +26,7 @@ class Particle {
         double* position;
         double* velocity;
         int dimensions;
-    
+
     public:
         std::vector <Particle*> neighborhood; // We don;t include this particle in the neighbors
 
@@ -37,6 +37,7 @@ class Particle {
         double* getPBestLoc() { return this->pbestLoc; }
         double* getPosition() { return this->position; }
         double* getVelocity() { return this->velocity; }
+        
 
 
         double* getNBestLoc();

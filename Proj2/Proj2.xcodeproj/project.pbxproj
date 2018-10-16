@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		6D1A0FCA21752B520003CB8B /* libkoolplot.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 6D1A0FC721752B520003CB8B /* libkoolplot.a */; };
 		6D9CCDE92172883C0032DAA0 /* Swarm.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6D9CCDE22172883C0032DAA0 /* Swarm.cpp */; };
 		6D9CCDEA2172883C0032DAA0 /* Particle.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6D9CCDE52172883C0032DAA0 /* Particle.cpp */; };
 		6D9CCDEB2172883C0032DAA0 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6D9CCDE72172883C0032DAA0 /* main.cpp */; };
@@ -27,6 +28,12 @@
 
 /* Begin PBXFileReference section */
 		6D0AFC592170F29300E2EE07 /* Proj2 */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = Proj2; sourceTree = BUILT_PRODUCTS_DIR; };
+		6D1A0FC421752B510003CB8B /* BGI_util.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BGI_util.h; path = ../../koolplot1_2/BGI_util.h; sourceTree = "<group>"; };
+		6D1A0FC521752B520003CB8B /* PlotData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PlotData.h; path = ../../koolplot1_2/PlotData.h; sourceTree = "<group>"; };
+		6D1A0FC621752B520003CB8B /* Plotstream.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Plotstream.h; path = ../../koolplot1_2/Plotstream.h; sourceTree = "<group>"; };
+		6D1A0FC721752B520003CB8B /* libkoolplot.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libkoolplot.a; path = ../../koolplot1_2/libkoolplot.a; sourceTree = "<group>"; };
+		6D1A0FC821752B520003CB8B /* winbgitypes.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = winbgitypes.h; path = ../../koolplot1_2/winbgitypes.h; sourceTree = "<group>"; };
+		6D1A0FC921752B520003CB8B /* koolplot.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = koolplot.h; path = ../../koolplot1_2/koolplot.h; sourceTree = "<group>"; };
 		6D9CCDE22172883C0032DAA0 /* Swarm.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = Swarm.cpp; path = ../../Swarm.cpp; sourceTree = "<group>"; };
 		6D9CCDE32172883C0032DAA0 /* Particle.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = Particle.hpp; path = ../../Particle.hpp; sourceTree = "<group>"; };
 		6D9CCDE42172883C0032DAA0 /* Swarm.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = Swarm.hpp; path = ../../Swarm.hpp; sourceTree = "<group>"; };
@@ -41,6 +48,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6D1A0FCA21752B520003CB8B /* libkoolplot.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -66,6 +74,12 @@
 		6D0AFC5B2170F29300E2EE07 /* Proj2 */ = {
 			isa = PBXGroup;
 			children = (
+				6D1A0FC421752B510003CB8B /* BGI_util.h */,
+				6D1A0FC921752B520003CB8B /* koolplot.h */,
+				6D1A0FC721752B520003CB8B /* libkoolplot.a */,
+				6D1A0FC521752B520003CB8B /* PlotData.h */,
+				6D1A0FC621752B520003CB8B /* Plotstream.h */,
+				6D1A0FC821752B520003CB8B /* winbgitypes.h */,
 				6D9CCDE72172883C0032DAA0 /* main.cpp */,
 				6D9CCDE52172883C0032DAA0 /* Particle.cpp */,
 				6D9CCDE32172883C0032DAA0 /* Particle.hpp */,

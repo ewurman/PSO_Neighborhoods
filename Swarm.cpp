@@ -44,8 +44,24 @@ void Swarm::initializeNeighborhoods(){
 
 void Swarm::evaluate() {
 	for (int i = 0; i < this->swarmSize; i++) {
-        //this->particles 
+        double eval;
+        switch (this->function) {
+            case Rosenbrock:
+                eval = evaluateRosenbrock(this->particles[i]., <#int dimensions#>);
+                break;
+            case Ackley:
+                eval = evaluateAckley(<#double *pos#>, <#int dimensions#>);
+                break;
+            case Rastrigin:
+                eval = evaluateRastrigin(<#double *pos#>, <#int dimensions#>);
+            default:
+                break;
+        }
+        if (eval < this->particles[i].getPBestLoc()) {
+            this->particles[i].pbestLoc = eval;
+        }
 	}
+    
 }
 
 void Swarm::pso(){
