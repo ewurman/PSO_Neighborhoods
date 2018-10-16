@@ -17,7 +17,7 @@ double CONSTRICTION_FACTOR = 0.7298;
 double TOWARD_PBEST = 2.05;
 double TOWARD_NBEST = 2.05;
 
-
+// lets be consistent with position and location. easier to read
 class Particle {
 
     private:

@@ -66,11 +66,15 @@ void Swarm::evaluate() {
     
 }
 
+
+void Swarm::update_swarm_pos() {
+    for (int i = 0; i < this->swarmSize; i++) {
+        this->particles[i].update_position();
+    }
+}
+
 void Swarm::pso(){
-	//Swarm.evaluate();
 	for (int i = 0; i < this->numIterations; i++) {
-		for (int j = 0; j < this->swarmSize; j++) {
-			
-		}
+
 	}
 }
