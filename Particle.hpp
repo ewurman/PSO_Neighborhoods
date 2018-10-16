@@ -37,9 +37,9 @@ class Particle {
         double* getPBestLoc() { return this->pbestLoc; }
         double* getPosition() { return this->position; }
         double* getVelocity() { return this->velocity; }
-    
-        void setPBestVal(double newBest) { this->pbestVal = newBest; return; }
-        void setPBestLoc(double* newBestLoc) { this->pbestLoc = newBestLoc; return; }
+        
+        void setPBestLoc(double* loc) { this->pbestLoc = loc; }
+        void setPBestVal(double val) { this->pbestVal = val; }
 
         double* getNBestLoc();
         void update_position();

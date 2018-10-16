@@ -7,7 +7,7 @@
 
 #include <iostream>
 #include "Swarm.cpp"
-#include "koolplot.h"
+//#include "koolplot.h"
 
 
 using namespace std;
