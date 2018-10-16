@@ -68,7 +68,6 @@ void Swarm::evaluate() {
 
 void Swarm::pso(){
 	//Swarm.evaluate();
-
 	for (int i = 0; i < this->numIterations; i++) {
 		for (int j = 0; j < this->swarmSize; j++) {
 			
