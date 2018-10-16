@@ -47,29 +47,34 @@ void Swarm::evaluate() {
         double eval;
         switch (this->function) {
             case Rosenbrock:
-                eval = evaluateRosenbrock(this->particles[i]., <#int dimensions#>);
+                eval = evaluateRosenbrock(this->particles[i].getPosition(), this->dimensions);
                 break;
             case Ackley:
-                eval = evaluateAckley(<#double *pos#>, <#int dimensions#>);
+                eval = evaluateAckley(this->particles[i].getPosition(), this->dimensions);
                 break;
             case Rastrigin:
-                eval = evaluateRastrigin(<#double *pos#>, <#int dimensions#>);
+                eval = evaluateRastrigin(this->particles[i].getPosition(), this->dimensions);
             default:
                 break;
         }
-        if (eval < this->particles[i].getPBestLoc()) {
-            this->particles[i].pbestLoc = eval;
+        
+        // update personal best
+        if (eval < this->particles[i].getPBestVal()) {
+            this->particles[i].setPBestVal(eval);
+            this->particles[i].setPBestLoc(particles[i].getPBestLoc());
         }
 	}
     
 }
 
-void Swarm::pso(){
-	//Swarm.evaluate();
+void Swarm::update_swarm_pos() {
+    for (int i = 0; i < this->swarmSize; i++) {
+        this->particles[i].update_position();
+    }
+}
 
+void Swarm::pso(){
 	for (int i = 0; i < this->numIterations; i++) {
-		for (int j = 0; j < this->swarmSize; j++) {
-			
-		}
+
 	}
 }

@@ -16,7 +16,7 @@ using namespace std;
 //    plotdata y = sin(x) + x/5;
 //    plot(x, y);
 //    return 0;
-}
+//}
 int main(int argc, const char * argv[]) {
 
     const char * topologytype = argv[1];
