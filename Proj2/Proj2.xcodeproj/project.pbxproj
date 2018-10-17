@@ -27,7 +27,7 @@
 
 /* Begin PBXFileReference section */
 		6D0AFC592170F29300E2EE07 /* Proj2 */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = Proj2; sourceTree = BUILT_PRODUCTS_DIR; };
-		6D1A0FCB2176B5590003CB8B /* utils.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = utils.hpp; sourceTree = "<group>"; };
+		6D1A0FCC2176BF9F0003CB8B /* utils.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = utils.hpp; path = ../../utils.hpp; sourceTree = "<group>"; };
 		6D9CCDE22172883C0032DAA0 /* Swarm.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = Swarm.cpp; path = ../../Swarm.cpp; sourceTree = "<group>"; };
 		6D9CCDE32172883C0032DAA0 /* Particle.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = Particle.hpp; path = ../../Particle.hpp; sourceTree = "<group>"; };
 		6D9CCDE42172883C0032DAA0 /* Swarm.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = Swarm.hpp; path = ../../Swarm.hpp; sourceTree = "<group>"; };
@@ -67,6 +67,7 @@
 		6D0AFC5B2170F29300E2EE07 /* Proj2 */ = {
 			isa = PBXGroup;
 			children = (
+				6D1A0FCC2176BF9F0003CB8B /* utils.hpp */,
 				6D9CCDE72172883C0032DAA0 /* main.cpp */,
 				6D9CCDE52172883C0032DAA0 /* Particle.cpp */,
 				6D9CCDE32172883C0032DAA0 /* Particle.hpp */,
@@ -74,7 +75,6 @@
 				6D9CCDE22172883C0032DAA0 /* Swarm.cpp */,
 				6D9CCDE42172883C0032DAA0 /* Swarm.hpp */,
 				6D9CCDE82172883C0032DAA0 /* utils.cpp */,
-				6D1A0FCB2176B5590003CB8B /* utils.hpp */,
 			);
 			path = Proj2;
 			sourceTree = "<group>";
