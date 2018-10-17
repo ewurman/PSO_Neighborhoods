@@ -12,6 +12,13 @@ using namespace std;
 
 int main(int argc, const char * argv[]) {
 
+    if (argc != 6){
+        cout << "Must have 5 additional arguments: <topology> <swarm_size> <iterations> <function> <dimensions>" << endl;
+        cout << "you had " << argc - 1 << " additional arguments" << endl;
+        exit(1);
+    }
+
+
     const char * topologytype = argv[1];
     int num_particles = atoi(argv[2]);
     int iterations = atoi(argv[3]);
@@ -53,9 +60,12 @@ int main(int argc, const char * argv[]) {
         return 1;
     }
 
-
+    //seed random to get more random value
+    srand(time(0));
+    
     // Below this point can be done in Swarm::pso();
-
+    Swarm* swarm = new Swarm(iterations, num_particles, dimensions, function, topology);
+    swarm->pso();
 
 
     return 0;

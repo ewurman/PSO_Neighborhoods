@@ -24,10 +24,13 @@ class Swarm {
         Function function;
         NeighborhoodTopology topology;
         vector<Particle> particles;
+        double globalBestVal;
+        double* globalBestLoc;
 
     public:
         Swarm(int iterations, int numParticles, int dimensions, Function f, NeighborhoodTopology topology);
         void initializeNeighborhoods();
+        void updateThenEvaluate();
         void evaluate();
         void update_swarm_pos();
         void pso();
