@@ -39,7 +39,10 @@ class Particle {
 
         double* getNBestLoc();
         void update_position();
-        void update_velocity(); //maybe parameters like inertia rate, etc or make them constants
+        void update_velocity();
+        void update_velocity2(int iteration); //maybe parameters like inertia rate, etc or make them constants
+
+        void printVelocity();
 };
 
 

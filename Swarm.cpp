@@ -47,8 +47,9 @@ void Swarm::initializeNeighborhoods(){
 
 void Swarm::updateThenEvaluate() {
 	for (int i = 0; i < this->swarmSize; i++) {
-        this->particles[i].update_velocity();
+        this->particles[i].printVelocity();
         this->particles[i].update_position();
+        this->particles[i].update_velocity();
         double eval;
         double* location = this->particles[i].getPosition();
         switch (this->function) {
@@ -108,10 +109,10 @@ void Swarm::evaluate() {
 
 
 void Swarm::pso(){
-    evaluate(); // we want an initial location for pbest and pbestval
+    //evaluate(); // we want an initial location for pbest and pbestval
 	for (int i = 0; i < this->numIterations; i++) {
         updateThenEvaluate();
-        // cout << "Best value found of " << this->globalBestVal << endl;
+        cout << "Best value so far found of " << this->globalBestVal << endl;
 	}
     cout << "Best value found of " << this->globalBestVal << endl;
 }

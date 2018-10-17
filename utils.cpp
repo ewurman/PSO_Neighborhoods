@@ -207,8 +207,12 @@ double evaluateAckley(double* pos, int dimensions){
 //    return fitness;
 //}
 
-double evaluateRastrigin(double* pos, int dimensions){
-    return pos[0] * pos[0] + pos[1] * pos[1];
+double evaluateRastrigin(double* pos, int dimensions){ //sphere
+	double total = 0;
+	for (int i = 0; i < dimensions; i++){
+		total += pos[i] * pos[1];
+	}
+    return total;
 }
 
 
