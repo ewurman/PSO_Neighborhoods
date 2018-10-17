@@ -9,6 +9,7 @@
 //#include "utils.hpp"
 #include <vector>
 #include <cfloat>
+#include <math.h>
 
 double CONSTRICTION_FACTOR = 0.7298;
 double TOWARD_PBEST = 2.05;
@@ -77,6 +78,32 @@ void Particle::update_velocity(){
 }
 
 
+void Particle::update_velocity2(int iteration){
+    if (iteration == 0){
+        return;
+    }
+    double* newVelocity = new double[this->dimensions];
+    double* nbestLoc = this->getNBestLoc();
+    for (int i = 0; i < this->dimensions; i++){
+        double random1 = randomDoubleInRange(0, TOWARD_PBEST);
+        double random2 = randomDoubleInRange(0, TOWARD_NBEST);
+        newVelocity[i] = CONSTRICTION_FACTOR * (this->velocity[i] + random1*(this->pbestLoc[i] - this->position[i]) +
+                                                    random2*(nbestLoc[i] - this->position[i]));
+    }
+    double* toDelete = this->velocity;
+    this->velocity = newVelocity;
+    delete(toDelete);
+}
+
+void Particle::printVelocity(){
+    cout << "\t Velocity for particle ";
+    double total = 0;
+    for (int i = 0; i < this->dimensions; i++){
+        cout << velocity[i] << " ";
+        total += velocity[i]*velocity[i];
+    }
+    cout << "  has a magnitude of " << sqrt(total) << endl;
+}
 
 
 
