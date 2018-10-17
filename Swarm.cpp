@@ -9,7 +9,7 @@
 #include "Particle.hpp"
 #include <vector>
 #include <cfloat>
-
+#include <iostream>
 
 Swarm::Swarm(int iterations, int numParticles, int dimensions, Function f, NeighborhoodTopology topology){
     this->numIterations = iterations;
@@ -73,7 +73,7 @@ void Swarm::updateThenEvaluate() {
             }
             this->globalBestVal = eval;
         }
-	}    
+	}
 }
 
 void Swarm::evaluate() {
@@ -102,7 +102,7 @@ void Swarm::evaluate() {
             }
             this->globalBestVal = eval;
         }
-    }    
+    }
 }
 
 
@@ -111,6 +111,7 @@ void Swarm::pso(){
     evaluate(); // we want an initial location for pbest and pbestval
 	for (int i = 0; i < this->numIterations; i++) {
         updateThenEvaluate();
+        // cout << "Best value found of " << this->globalBestVal << endl;
 	}
     cout << "Best value found of " << this->globalBestVal << endl;
 }

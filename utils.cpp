@@ -204,10 +204,14 @@ double evaluateAckley(double* pos, int dimensions){
 	return -20.0 * exp(-0.2*sqrt(firstSum / (double)dimensions)) - exp(secondSum / (double) dimensions) + 20 + M_E;
 }
 
+//double evaluateRastrigin(double* pos, int dimensions){
+//    double fitness = 10 * dimensions;
+//    for (int i = 0; i < dimensions; i++){
+//        fitness += pos[i]*pos[i] - (10 * cos(2 * M_PI * pos[i]));
+//    }
+//    return fitness;
+//}
+
 double evaluateRastrigin(double* pos, int dimensions){
-	double fitness = 10 * dimensions;
-	for (int i = 0; i < dimensions; i++){
-		fitness += pos[i]*pos[i] - (10 * cos(2 * M_PI * pos[i]));
-	}
-	return fitness;
+    return pos[0] * pos[0] + pos[1] * pos[1];
 }

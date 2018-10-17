@@ -67,14 +67,14 @@
 		6D0AFC5B2170F29300E2EE07 /* Proj2 */ = {
 			isa = PBXGroup;
 			children = (
-				6D1A0FCC2176BF9F0003CB8B /* utils.hpp */,
 				6D9CCDE72172883C0032DAA0 /* main.cpp */,
 				6D9CCDE52172883C0032DAA0 /* Particle.cpp */,
 				6D9CCDE32172883C0032DAA0 /* Particle.hpp */,
-				6D9CCDE62172883C0032DAA0 /* README.md */,
 				6D9CCDE22172883C0032DAA0 /* Swarm.cpp */,
 				6D9CCDE42172883C0032DAA0 /* Swarm.hpp */,
 				6D9CCDE82172883C0032DAA0 /* utils.cpp */,
+				6D1A0FCC2176BF9F0003CB8B /* utils.hpp */,
+				6D9CCDE62172883C0032DAA0 /* README.md */,
 			);
 			path = Proj2;
 			sourceTree = "<group>";
