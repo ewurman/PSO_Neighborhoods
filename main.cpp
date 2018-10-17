@@ -6,7 +6,7 @@
 //
 
 #include <iostream>
-#include "Swarm.cpp"
+#include "Swarm.hpp"
 
 using namespace std;
 

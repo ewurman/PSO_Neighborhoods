@@ -6,7 +6,7 @@
 //
 
 #include "Swarm.hpp"
-#include "Particle.cpp"
+#include "Particle.hpp"
 #include <vector>
 #include <cfloat>
 #include <iostream>
@@ -21,7 +21,7 @@ Swarm::Swarm(int iterations, int numParticles, int dimensions, Function f, Neigh
     this->globalBestVal = DBL_MAX;
     double minPos, maxPos, minVel, maxVel;
     getPosRangeForFunction(f, minPos, maxPos);
-    getPosRangeForFunction(f, minVel, maxVel);
+    getVelRangeForFunction(f, minVel, maxVel);
     for (int i = 0; i < numParticles; i++){
         Particle p = *new Particle(dimensions, minPos, maxPos, minVel, maxVel);
         this->particles.push_back(p);

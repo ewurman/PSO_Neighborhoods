@@ -11,7 +11,7 @@
 
 #include <stdio.h>
 #include <vector>
-#include "utils.cpp"
+#include "utils.hpp"
 
 class Swarm {
 
