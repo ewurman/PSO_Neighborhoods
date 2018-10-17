@@ -3,6 +3,9 @@
 //
 
 
+#ifndef UTILS_CPP
+#define UTILS_CPP
+
 #include "Particle.hpp"
 #include "utils.hpp"
 #include <vector>
@@ -11,32 +14,33 @@
 
 using namespace std;
 
-//enum Function {
-//    Rosenbrock,
-//    Ackley,
-//    Rastrigin
-//};
-//
-//enum NeighborhoodTopology {
-//    Global,
-//    Ring,
-//    VonNeumann,
-//    Random
-//};
-//
-//const double RosenbrockPosMin = 15.0;
-//const double RosenbrockPosMax = 30.0;
-//const double AckleyPosMin = 16.0;
-//const double AckleyPosMax = 32.0;
-//const double RastriginPosMin = 2.56;
-//const double RastriginPosMax = 5.12;
-//const double RosenbrockVelMin = -2.0;
-//const double RosenbrockVelMax = 2.0;
-//const double AckleyVelMin = -2.0;
-//const double AckleyVelMax = 4.0;
-//const double RastriginVelMin = -2.0;
-//const double RastriginVelMax = 4.0;
+/*
+enum Function {
+    Rosenbrock,
+    Ackley,
+    Rastrigin
+};
 
+enum NeighborhoodTopology {
+	Global,
+	Ring,
+	VonNeumann,
+	Random
+};
+
+const double RosenbrockPosMin = 15.0;
+const double RosenbrockPosMax = 30.0;
+const double AckleyPosMin = 16.0;
+const double AckleyPosMax = 32.0;
+const double RastriginPosMin = 2.56;
+const double RastriginPosMax = 5.12;
+const double RosenbrockVelMin = -2.0;
+const double RosenbrockVelMax = 2.0;
+const double AckleyVelMin = -2.0;
+const double AckleyVelMax = 4.0;
+const double RastriginVelMin = -2.0;
+const double RastriginVelMax = 4.0;
+*/
 
 void getPosRangeForFunction(Function f, double &min, double &max){
 	if (f == Rosenbrock){
@@ -80,6 +84,7 @@ double randomDoubleInRange(double fMin, double fMax)
     return fMin + f * (fMax - fMin);
 }
 
+
 int** vnArray(int rows, int columns) {
     int ** indecies = new int*[rows];
     int count = 0;
@@ -95,7 +100,7 @@ int** vnArray(int rows, int columns) {
 
 
 void vonNeumann(std::vector<Particle> &particles) {
-	int rows = 1;
+	int rows = 0;
 	switch (particles.size()) {
 		case 16 : rows = 4; break;
 		case 30 : rows = 5; break;
@@ -136,17 +141,6 @@ void vonNeumann(std::vector<Particle> &particles) {
 	}
 }
 
-
-void global(vector<Particle> &particles) {
-    for (int i = 0; i < particles.size(); i++) {
-        for (int j = 0; j < particles.size(); j++) {
-            if (i != j) {
-                particles[i].neighborhood.push_back(&particles[j]);
-            }
-        }
-    }
-}
-
 void ring(vector<Particle> &particles) {
 	for (int i = 0; i < particles.size(); i++) {
 		if (i == 0){
@@ -165,23 +159,24 @@ void ring(vector<Particle> &particles) {
 }
 
 
-void randNeighbors(vector<Particle> &particles, int numNeighbors) {
-	vector<int> used;
-	std::vector<int>::iterator it;
+void global(vector<Particle> &particles) {
 	for (int i = 0; i < particles.size(); i++) {
-		for (int j = 0; j < numNeighbors; j++) {
-			int r = rand() % particles.size();
-
-			it = find(used.begin(), used.end(), r);
-
-
-			while (it != used.end()) {
-				int r = rand() % particles.size();
-				it = find(used.begin(), used.end(), r);
+		for (int j = 0; j < particles.size(); j++) {
+			if (i != j) {
+				particles[i].neighborhood.push_back(&particles[j]);
 			}
+		}
+	}
+}
 
-			particles[i].neighborhood.push_back(&particles[r]);
-			used.push_back(r);
+
+void randNeighbors(vector<Particle> &particles, int numNeighbors) {
+	for (int i = 0; i < particles.size(); i++) {
+		random_shuffle ( particles.begin(), particles.end());
+		for (int j = 0; j < numNeighbors; j++) {
+
+			particles[i].neighborhood.push_back(&particles[j]);
+			
 		}
 	}
 }
@@ -215,3 +210,7 @@ double evaluateAckley(double* pos, int dimensions){
 double evaluateRastrigin(double* pos, int dimensions){
     return pos[0] * pos[0] + pos[1] * pos[1];
 }
+
+
+
+#endif

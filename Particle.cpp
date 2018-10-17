@@ -6,7 +6,7 @@
 //
 
 #include "Particle.hpp"
-#include "utils.hpp"
+//#include "utils.hpp"
 #include <vector>
 #include <cfloat>
 
@@ -29,7 +29,7 @@ Particle::Particle(int dimensions, double startPosMin, double startPosMax, doubl
         
 
 Particle::Particle(int dimensions, double startPosMin, double startPosMax, double startVelMin, double startVelMax, std::vector<Particle*> neighborhood){
-    this->pbestVal = INT_MAX;
+    this->pbestVal = DBL_MAX;
     this->pbestLoc = new double[dimensions];
     this->position = new double[dimensions];
     this->velocity = new double[dimensions];
