@@ -8,6 +8,7 @@
 #include "Swarm.hpp"
 #include "Particle.cpp"
 #include <vector>
+#include <cfloat>
 
 
 Swarm::Swarm(int iterations, int numParticles, int dimensions, Function f, NeighborhoodTopology topology){
@@ -17,6 +18,7 @@ Swarm::Swarm(int iterations, int numParticles, int dimensions, Function f, Neigh
     this->function = f;
     this->topology = topology;
     this->globalBestLoc = new double[dimensions];
+    this->globalBestVal = DBL_MAX;
     double minPos, maxPos, minVel, maxVel;
     getPosRangeForFunction(f, minPos, maxPos);
     getPosRangeForFunction(f, minVel, maxVel);
@@ -64,6 +66,12 @@ void Swarm::updateThenEvaluate() {
         if (eval < this->particles[i].getPBestVal()) {
             this->particles[i].setPBestLoc(location);
             this->particles[i].setPBestVal(eval);
+        }
+        if (eval < this->globalBestVal){
+            for (int j = 0; j < this->dimensions; j++){
+                this->globalBestLoc[j] = location[j];
+            }
+            this->globalBestVal = eval;
         }
 	}    
 }

@@ -8,10 +8,11 @@
 #include "Particle.hpp"
 //#include "utils.cpp"
 #include <vector>
+#include <cfloat>
 
 
 Particle::Particle(int dimensions, double startPosMin, double startPosMax, double startVelMin, double startVelMax){
-    this->pbestVal = INT_MAX;
+    this->pbestVal = DBL_MAX;
     this->pbestLoc = new double[dimensions];
     this->position = new double[dimensions];
     this->velocity = new double[dimensions];
