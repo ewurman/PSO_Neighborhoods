@@ -6,17 +6,10 @@
 //
 
 #include <iostream>
-#include "Swarm.cpp"
-//#include "koolplot.h"
-
+#include "Swarm.hpp"
 
 using namespace std;
-//int main() {
-//    plotdata x(0, 10);
-//    plotdata y = sin(x) + x/5;
-//    plot(x, y);
-//    return 0;
-//}
+
 int main(int argc, const char * argv[]) {
 
     const char * topologytype = argv[1];

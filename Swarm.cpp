@@ -6,7 +6,7 @@
 //
 
 #include "Swarm.hpp"
-#include "Particle.cpp"
+#include "Particle.hpp"
 #include <vector>
 
 

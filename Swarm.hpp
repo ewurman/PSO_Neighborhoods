@@ -4,15 +4,14 @@
 //
 //  Created by Ian Squiers and Erik Wurman on 10/12/18.
 //
-#include <stdio.h>
-#include <vector>
-#include "utils.cpp"
 
 
 #ifndef Swarm_hpp
 #define Swarm_hpp
 
-
+#include <stdio.h>
+#include <vector>
+#include "utils.hpp"
 
 class Swarm {
 

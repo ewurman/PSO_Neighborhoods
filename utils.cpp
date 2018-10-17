@@ -3,41 +3,39 @@
 //
 
 
-#ifndef UTILS_CPP
-#define UTILS_CPP
-
 #include "Particle.hpp"
+#include "utils.hpp"
 #include <vector>
 #include <math.h>
 
 
 using namespace std;
 
-enum Function {
-    Rosenbrock,
-    Ackley,
-    Rastrigin
-};
-
-enum NeighborhoodTopology {
-	Global,
-	Ring,
-	VonNeumann,
-	Random
-};
-
-const double RosenbrockPosMin = 15.0;
-const double RosenbrockPosMax = 30.0;
-const double AckleyPosMin = 16.0;
-const double AckleyPosMax = 32.0;
-const double RastriginPosMin = 2.56;
-const double RastriginPosMax = 5.12;
-const double RosenbrockVelMin = -2.0;
-const double RosenbrockVelMax = 2.0;
-const double AckleyVelMin = -2.0;
-const double AckleyVelMax = 4.0;
-const double RastriginVelMin = -2.0;
-const double RastriginVelMax = 4.0;
+//enum Function {
+//    Rosenbrock,
+//    Ackley,
+//    Rastrigin
+//};
+//
+//enum NeighborhoodTopology {
+//    Global,
+//    Ring,
+//    VonNeumann,
+//    Random
+//};
+//
+//const double RosenbrockPosMin = 15.0;
+//const double RosenbrockPosMax = 30.0;
+//const double AckleyPosMin = 16.0;
+//const double AckleyPosMax = 32.0;
+//const double RastriginPosMin = 2.56;
+//const double RastriginPosMax = 5.12;
+//const double RosenbrockVelMin = -2.0;
+//const double RosenbrockVelMax = 2.0;
+//const double AckleyVelMin = -2.0;
+//const double AckleyVelMax = 4.0;
+//const double RastriginVelMin = -2.0;
+//const double RastriginVelMax = 4.0;
 
 
 void getPosRangeForFunction(Function f, double &min, double &max){
@@ -213,7 +211,3 @@ double evaluateRastrigin(double* pos, int dimensions){
 	}
 	return fitness;
 }
-
-
-
-#endif

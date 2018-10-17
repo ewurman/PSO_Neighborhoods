@@ -6,9 +6,12 @@
 //
 
 #include "Particle.hpp"
-#include "utils.cpp"
+#include "utils.hpp"
 #include <vector>
 
+double CONSTRICTION_FACTOR = 0.7298;
+double TOWARD_PBEST = 2.05;
+double TOWARD_NBEST = 2.05;
 
 Particle::Particle(int dimensions, double startPosMin, double startPosMax, double startVelMin, double startVelMax){
     this->pbestVal = INT_MAX;
