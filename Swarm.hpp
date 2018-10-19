@@ -16,6 +16,7 @@
 class Swarm {
 
     const static int randomNeighborNum = 5;
+    const static double rerandomizeChance = 0.2;
 
     private:
         int numIterations;

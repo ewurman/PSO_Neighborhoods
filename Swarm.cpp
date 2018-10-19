@@ -161,7 +161,10 @@ double Swarm::pso2(){
         updateThenEvaluate2(i);
         if (this->topology == Random){
             //20% chance to change the neighborhoods
-            rerandomizeNeighborhoods();
+            double chance = (double) rand() / RAND_MAX;
+            if (chance < rerandomizeChance){
+               rerandomizeNeighborhoods();
+            }
         }
         //cout << "Best value so far found of " << this->globalBestVal << endl;
     }

@@ -171,11 +171,15 @@ void global(vector<Particle> &particles) {
 
 
 void randNeighbors(vector<Particle> &particles, int numNeighbors) {
+	vector<Particle*> copy;
 	for (int i = 0; i < particles.size(); i++) {
-		random_shuffle ( particles.begin(), particles.end());
+		copy.push_back(&particles[i]);
+	}
+	for (int i = 0; i < particles.size(); i++) {
+		random_shuffle ( copy.begin(), copy.end());
 		for (int j = 0; j < numNeighbors; j++) {
 
-			particles[i].neighborhood.push_back(&particles[j]);
+			particles[i].neighborhood.push_back(copy[j]);
 			
 		}
 	}
