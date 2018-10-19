@@ -6,7 +6,7 @@
 //
 
 #include "Swarm.hpp"
-#include "Particle.hpp"
+#include "Particle.cpp"
 #include <vector>
 #include <cfloat>
 #include <iostream>
@@ -79,7 +79,7 @@ void Swarm::updateThenEvaluate() {
 
 void Swarm::updateThenEvaluate2(int iteration) {
     for (int i = 0; i < this->swarmSize; i++) {
-        this->particles[i].printVelocity();
+        //this->particles[i].printVelocity();
         this->particles[i].update_position();
         this->particles[i].update_velocity2(iteration);
         double eval;
@@ -138,13 +138,35 @@ void Swarm::evaluate() {
     }
 }
 
+void Swarm::rerandomizeNeighborhoods(){
+    for (int i = 0; i < this->swarmSize; i++){
+        particles[i].clearNeighborhood();
+    }
+    randNeighbors(this->particles, randomNeighborNum);
+}
 
 
 void Swarm::pso(){
     //evaluate(); // we want an initial location for pbest and pbestval
 	for (int i = 0; i < this->numIterations; i++) {
         updateThenEvaluate2(i);
-        cout << "Best value so far found of " << this->globalBestVal << endl;
+        //cout << "Best value so far found of " << this->globalBestVal << endl;
 	}
     cout << "Best value found of " << this->globalBestVal << endl;
 }
+
+double Swarm::pso2(){
+    //evaluate(); // we want an initial location for pbest and pbestval
+    for (int i = 0; i < this->numIterations; i++) {
+        updateThenEvaluate2(i);
+        if (this->topology == Random){
+            //20% chance to change the neighborhoods
+            rerandomizeNeighborhoods();
+        }
+        //cout << "Best value so far found of " << this->globalBestVal << endl;
+    }
+    //cout << "Best value found of " << this->globalBestVal << endl;
+    return this->globalBestVal;
+}
+
+

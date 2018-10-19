@@ -103,6 +103,11 @@ void Particle::update_velocity2(int iteration){
     delete(toDelete);
 }
 
+void Particle::clearNeighborhood(){
+    neighborhood.clear();
+}
+
+
 void Particle::printVelocity(){
     cout << "\t Velocity for particle ";
     double total = 0;

@@ -11,7 +11,7 @@
 
 #include <stdio.h>
 #include <vector>
-#include "utils.hpp"
+#include "utils.cpp"
 
 class Swarm {
 
@@ -35,6 +35,8 @@ class Swarm {
         void updateThenEvaluate2(int iteration);
         void update_swarm_pos();
         void pso();
+        double pso2();
+        void rerandomizeNeighborhoods();
         
 };
 
