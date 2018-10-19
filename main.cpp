@@ -77,8 +77,10 @@ int main(int argc, const char * argv[]) {
         //fstream summaryfile;
         //summaryfile.open(filename);
         int swarm_sizes[] = {16, 30, 49};
+        string swarm_size_names[] = {"16", "30", "49"};
         string functionNames[] = {"Rosenbrock", "Ackley", "Rastrigin"};
         string topologyNames[] = {"Global", "Ring", "VonNeumann", "Random"};
+        string header = "Number Of Particles,Best Value";
         int iterations = 1000;
         int dimensions = 30;
         for (int i = 0; i < 3; i++) { // For each function 
@@ -86,11 +88,16 @@ int main(int argc, const char * argv[]) {
             string functionFilename = functionNames[i] + ".csv";
             fstream functionFile;
             functionFile.open(functionFilename, ios::out);
-            functionFile << "Number Of Particles,Best Value" << endl;
+            functionFile << header << endl;
             cout << "opened file " << functionFilename << endl;
             for (int j = 0; j < 4; j++) { //For each topology
                 NeighborhoodTopology top = static_cast<NeighborhoodTopology>(j);
                 string topName = topologyNames[j];
+                string topFileName =  topName + functionFilename;
+                fstream topFile;
+                topFile.open(topFileName, ios::out);
+                cout << "opened file " << topFileName << endl;
+                topFile << header << endl;
                 for (int k = 0; k < 3; k++){
                     int num_particles = swarm_sizes[k];
                     for (int trial = 0; trial < 20; trial++){
@@ -98,13 +105,41 @@ int main(int argc, const char * argv[]) {
                         double value = swarm->pso2();
                         //summaryfile << 
                         functionFile << num_particles << "," << value << endl;
+                        topFile << num_particles << "," << value << endl;
                         delete(swarm);
                     }
+                    topFile << "#" << swarm_size_names[k] << endl;
                 }
+                topFile.close();
+                cout << "closed file " << topFileName << endl;
                 functionFile << "#" << topName << endl;
             }
             functionFile.close();
             cout << "closed file " << functionFilename << endl;
+            //Now we do function and swarm constant
+            for (int k = 0; k < 3; k++){
+                int num_particles = swarm_sizes[k];
+                string swarm_size_name = swarm_size_names[k];
+                string swarmSizeFilename = swarm_size_name + functionFilename;
+                fstream swarmSizeFile;
+                swarmSizeFile.open(swarmSizeFilename, ios::out);
+                cout << "opened file " << swarmSizeFilename << endl;
+                swarmSizeFile << header << endl;
+                for (int j = 0; j < 4; j++){
+                    NeighborhoodTopology top = static_cast<NeighborhoodTopology>(j);
+                     for (int trial = 0; trial < 20; trial++){
+                        Swarm* swarm = new Swarm(iterations, num_particles, dimensions, f, top);
+                        double value = swarm->pso2();
+                        //summaryfile << 
+                        swarmSizeFile << num_particles << "," << value << endl;
+                        delete(swarm);
+                    }
+                    swarmSizeFile << "#" << topologyNames[j] << endl;
+                }
+                swarmSizeFile.close();
+                cout << "closed file " << swarmSizeFilename << endl;
+            }
+           
         }
 
         //summaryfile.close();
