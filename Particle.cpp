@@ -62,6 +62,14 @@ void Particle::update_position(){
     }
 }
 
+void Particle::setPBestLoc(double* loc) { 
+    for (int i = 0; i < this->dimensions; i++){
+        this->pbestLoc[i] = loc[i];
+    }
+
+}
+
+
 
 void Particle::update_velocity(){
     double* newVelocity = new double[this->dimensions];
@@ -79,7 +87,7 @@ void Particle::update_velocity(){
 
 
 void Particle::update_velocity2(int iteration){
-    if (iteration == 0){
+    if (iteration == 0){ //dont update if we haven't evaluated yet #scaryUninitializedValues
         return;
     }
     double* newVelocity = new double[this->dimensions];

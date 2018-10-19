@@ -32,6 +32,7 @@ class Swarm {
         void initializeNeighborhoods();
         void updateThenEvaluate();
         void evaluate();
+        void updateThenEvaluate2(int iteration);
         void update_swarm_pos();
         void pso();
         
