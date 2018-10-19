@@ -91,7 +91,6 @@ int main(int argc, const char * argv[]) {
             for (int j = 0; j < 4; j++) { //For each topology
                 NeighborhoodTopology top = static_cast<NeighborhoodTopology>(j);
                 string topName = topologyNames[j];
-                functionFile << "#" << topName << endl;
                 for (int k = 0; k < 3; k++){
                     int num_particles = swarm_sizes[k];
                     for (int trial = 0; trial < 20; trial++){
@@ -102,6 +101,7 @@ int main(int argc, const char * argv[]) {
                         delete(swarm);
                     }
                 }
+                functionFile << "#" << topName << endl;
             }
             functionFile.close();
             cout << "closed file " << functionFilename << endl;
